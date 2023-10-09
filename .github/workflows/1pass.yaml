@@ -11,7 +11,7 @@ jobs:
           export-env: false
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          SECRET_KEY: "op://Developement/test-credential/username"
+          SECRET_KEY: "op://Development/test-credential/username"
           SECRET_VALUE: "op://Development/test-credential/password"
           
       - name: Print masked secret
