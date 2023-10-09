@@ -1,10 +1,9 @@
 on: push
 jobs:
-  hello-world:
+  onepass:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - name: Load secret
         id: op-load-secret
         uses: 1password/load-secrets-action@v1
@@ -12,7 +11,7 @@ jobs:
           export-env: false
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          SECRET: op://Development/test-credential/password
+          SECRET: "op://Development/test-credential/password"
       - name: Print masked secret
-        run: echo "Secret: ${{ steps.op-load-secret.outputs.SECRET }}"
-        # Prints: Secret: ***
+        run: |-
+          echo "Secret: ${{ steps.op-load-secret.outputs.SECRET }}"
